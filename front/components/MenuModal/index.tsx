@@ -3,6 +3,7 @@ import React, { FC } from 'react';
 import styled from '@emotion/styled';
 import { useTheme } from '@emotion/react';
 import { MdOutlineClose } from 'react-icons/md';
+import Button from '../Button';
 interface IModal {
   show: boolean;
   onCloseModal: () => void;
@@ -21,26 +22,6 @@ export const Menu = styled.div<{ [key: string]: any }>`
 
   & .top {
     min-height: 100px;
-
-    & .close-button {
-      font-size: 22px;
-      width: 36px;
-      height: 36px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      cursor: pointer;
-      color: ${({ theme }) => theme.colors.gray[700]};
-      background-color: #fff;
-      border: none;
-      &:hover {
-        color: ${({ theme }) => theme.colors.purple[500]};
-      }
-
-      &:focus {
-        border: 2px solid ${({ theme }) => theme.colors.purple[500]};
-      }
-    }
   }
 
   & .section {
@@ -60,9 +41,7 @@ const MenuModal: FC<IModal> = ({ show, onCloseModal }) => {
     <Modal show={show} onCloseModal={onCloseModal}>
       <Menu theme={theme}>
         <div className={'top'}>
-          <button className={'close-button'} onClick={onCloseModal}>
-            <MdOutlineClose />
-          </button>
+          <Button value={<MdOutlineClose />} onClick={onCloseModal} style={{ backgroundColor: '#fff' }} />
         </div>
         <div className={'section'}>
           <span className={'section-header'}>About Me</span>

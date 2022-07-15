@@ -8,6 +8,7 @@ import { useTheme } from '@emotion/react';
 import { useCallback, useState } from 'react';
 import MenuModal from '../MenuModal';
 import SearchModal from '../SearchModal';
+import Button from '../Button';
 
 export const Base = styled.nav<{ [key: string]: any }>`
   width: 100vw;
@@ -17,7 +18,6 @@ export const Base = styled.nav<{ [key: string]: any }>`
   display: flex;
   align-items: center;
   justify-content: space-between;
-
   & #logo {
     font-size: 28px;
     font-weight: 800;
@@ -66,33 +66,6 @@ export const Base = styled.nav<{ [key: string]: any }>`
         }
       }
     }
-
-    & #menu-button,
-    #search-button {
-      font-size: 23px;
-      width: 36px;
-      height: 36px;
-      margin-left: 10px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      cursor: pointer;
-      color: ${({ theme }) => theme.colors.gray[700]};
-      border: none;
-      background-color: transparent;
-
-      &:hover {
-        color: ${({ theme }) => theme.colors.purple[500]};
-      }
-      &:focus {
-        border: 2px solid ${({ theme }) => theme.colors.purple[500]};
-      }
-    }
-
-    & #search-button {
-      margin-left: 10px;
-      border-radius: 50%;
-    }
   }
 `;
 
@@ -129,12 +102,8 @@ const Navigation: NextPage = () => {
           <div className={'action-item'}>Support Me</div>
           <div className={'action-item'}>Join the newsletter</div>
         </div>
-        <button id={'menu-button'} onClick={onClickMenu}>
-          <FiMenu />
-        </button>
-        <button id={'search-button'} onClick={onClickSearch}>
-          <HiOutlineSearch />
-        </button>
+        <Button value={<FiMenu />} onClick={onClickMenu} />
+        <Button value={<HiOutlineSearch />} onClick={onClickMenu} />
         <MenuModal show={showMenu} onCloseModal={onCloseModal} />
         <SearchModal show={showSearch} onCloseModal={onCloseModal} />
       </div>
