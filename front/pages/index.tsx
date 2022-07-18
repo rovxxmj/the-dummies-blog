@@ -28,6 +28,7 @@ const Home: NextPage = () => {
       summary: "We're tracking heat records in 400 U.S. cities, and you can look up your city.",
       name: '2022/07/docker',
       createdAt: '2022-07-10',
+      Hashtags: [{ id: 1, content: 'Docker' }],
       bgColor: theme.colors.blue[200],
       posterColor: theme.colors.blue[900],
       underlineColor: theme.colors.blue[400],
@@ -38,6 +39,10 @@ const Home: NextPage = () => {
       summary: '자바스크립트와 자바를 비교하며 프로그래밍 언어 접근하기',
       name: '2022/07/javascript_java',
       createdAt: '2022-07-23',
+      Hashtags: [
+        { id: 2, content: 'Javascript' },
+        { id: 3, content: 'Java' },
+      ],
       bgColor: theme.colors.yellow[100],
       posterColor: theme.colors.black,
       underlineColor: theme.colors.yellow[400],

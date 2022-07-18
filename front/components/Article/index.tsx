@@ -2,9 +2,10 @@ import { FC } from 'react';
 import styled from '@emotion/styled';
 import { useTheme } from '@emotion/react';
 import Link from 'next/link';
+import Hashtag from '../Hashtag';
 
 interface IArticle {
-  data: { id: number; title: string; summary: string; name: string; createdAt: string; [key: string]: any };
+  data: { id: number; title: string; summary: string; name: string; createdAt: string; Hashtags: { id: number; content: string }[]; [key: string]: any };
 }
 
 export const Base = styled.div<{ [key: string]: any }>`
@@ -70,6 +71,11 @@ const Article: FC<IArticle> = ({ data }) => {
               <p className={'summary'} style={{ textDecorationColor: data.underlineColor }}>
                 {data.summary}
               </p>
+              <li className={'hashtags'}>
+                {data.Hashtags.map((v) => (
+                  <Hashtag key={v.id} content={v.content} />
+                ))}
+              </li>
               <span className={'created-at'}>{data.createdAt}</span>
             </div>
           </div>
