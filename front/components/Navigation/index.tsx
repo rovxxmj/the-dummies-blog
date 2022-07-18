@@ -18,6 +18,7 @@ export const Base = styled.nav<{ [key: string]: any }>`
   display: flex;
   align-items: center;
   justify-content: space-between;
+
   & #logo {
     font-size: 28px;
     font-weight: 800;
@@ -103,7 +104,7 @@ const Navigation: NextPage = () => {
           <div className={'action-item'}>Join the newsletter</div>
         </div>
         <Button value={<FiMenu />} onClick={onClickMenu} />
-        <Button value={<HiOutlineSearch />} onClick={onClickMenu} />
+        <Button value={<HiOutlineSearch />} onClick={onClickSearch} />
         <MenuModal show={showMenu} onCloseModal={onCloseModal} />
         <SearchModal show={showSearch} onCloseModal={onCloseModal} />
       </div>

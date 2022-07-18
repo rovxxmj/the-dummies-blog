@@ -1,4 +1,4 @@
-import React, { CSSProperties, FC } from 'react';
+import React, { CSSProperties, FC, useMemo } from 'react';
 import styled from '@emotion/styled';
 import { useTheme } from '@emotion/react';
 interface IButton {
@@ -7,7 +7,7 @@ interface IButton {
   style?: CSSProperties;
 }
 
-export const ButtonWrapper = styled.button<{ [key: string]: any }>`
+export const ButtonCreator = styled.button<{ [key: string]: any }>`
   font-size: 23px;
   width: 36px;
   height: 36px;
@@ -30,10 +30,11 @@ export const ButtonWrapper = styled.button<{ [key: string]: any }>`
 
 const Button: FC<IButton> = ({ value, onClick, style }) => {
   const theme = useTheme();
+  const newStyle = useMemo(() => ({ ...style }), []);
   return (
-    <ButtonWrapper theme={theme} onClick={onClick} style={style}>
+    <ButtonCreator theme={theme} onClick={onClick} style={newStyle}>
       {value}
-    </ButtonWrapper>
+    </ButtonCreator>
   );
 };
 

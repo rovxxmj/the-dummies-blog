@@ -4,7 +4,7 @@ import { useTheme } from '@emotion/react';
 import Link from 'next/link';
 
 interface IArticle {
-  data: { id: number; title: string; summary: string; name: string; bgColor: string; [key: string]: any };
+  data: { id: number; title: string; summary: string; name: string; createdAt: string; [key: string]: any };
 }
 
 export const Base = styled.div<{ [key: string]: any }>`
@@ -17,13 +17,13 @@ export const Base = styled.div<{ [key: string]: any }>`
     align-items: center;
 
     & .poster {
-      width: 400px;
+      min-width: 400px;
       height: 240px;
       transition: 0.2s;
     }
 
     > .content {
-      height: 240px;
+      height: 230px;
       margin-left: 30px;
 
       > .title {
@@ -32,6 +32,15 @@ export const Base = styled.div<{ [key: string]: any }>`
 
       > .summary {
         font-size: 24px;
+        font-weight: 400;
+        margin: 20px 0;
+        text-decoration: underline;
+      }
+
+      > .created-at {
+        opacity: 0.5;
+        font-size: 15px;
+        font-weight: 500;
       }
     }
   }
@@ -39,6 +48,10 @@ export const Base = styled.div<{ [key: string]: any }>`
   &:hover {
     & .poster {
       transform: scale(1.02);
+    }
+
+    & .summary {
+      opacity: 1;
     }
   }
 `;
@@ -53,8 +66,11 @@ const Article: FC<IArticle> = ({ data }) => {
           <div className={'inner'}>
             <div className={'poster'} style={{ backgroundColor: data.posterColor }}></div>
             <div className={'content'}>
-              <h2 className={'title'}>{data.title}</h2>
-              <p className={'summary'}>{data.summary}</p>
+              {/*<h2 className={'title'}>{data.title}</h2>*/}
+              <p className={'summary'} style={{ textDecorationColor: data.underlineColor }}>
+                {data.summary}
+              </p>
+              <span className={'created-at'}>{data.createdAt}</span>
             </div>
           </div>
         </Base>
