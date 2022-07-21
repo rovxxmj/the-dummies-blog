@@ -24,11 +24,28 @@ const Home: NextPage = () => {
   const dummies = [
     {
       id: Number(new Date()),
+      title: '실행 함수 정리하기',
+      summary: '실행 함수 정리하기',
+      name: '2022/08/executive-function',
+      createdAt: '2022-08-02',
+      Hashtags: [
+        { id: 4, content: 'Javascript' },
+        { id: 5, content: '실행 함수' },
+      ],
+      bgColor: theme.colors.orange[100],
+      posterColor: theme.colors.orange[300],
+      underlineColor: theme.colors.yellow[400],
+    },
+    {
+      id: Number(new Date()),
       title: 'Docker',
-      summary: "We're tracking heat records in 400 U.S. cities, and you can look up your city.",
+      summary: 'Linux와 Docker 함께 정리하기',
       name: '2022/07/docker',
       createdAt: '2022-07-10',
-      Hashtags: [{ id: 1, content: 'Docker' }],
+      Hashtags: [
+        { id: 1, content: 'Docker' },
+        { id: 2, content: 'Linux' },
+      ],
       bgColor: theme.colors.blue[200],
       posterColor: theme.colors.blue[900],
       underlineColor: theme.colors.blue[400],

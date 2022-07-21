@@ -9,6 +9,7 @@ import { useCallback, useState } from 'react';
 import MenuModal from '../MenuModal';
 import SearchModal from '../SearchModal';
 import Button from '../Button';
+import Link from "next/link";
 
 export const Base = styled.nav<{ [key: string]: any }>`
   width: 100vw;
@@ -86,7 +87,11 @@ const Navigation: NextPage = () => {
   }, []);
   return (
     <Base theme={theme}>
-      <div id={'logo'}>The Dummies</div>
+      <div id={'logo'}>
+        <Link href={"/"}>
+          <a>The Dummies</a>
+        </Link>
+      </div>
       <div className={'right-container'}>
         <div className={'social-links'}>
           <span className={'social-link'}>
