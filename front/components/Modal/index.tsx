@@ -15,7 +15,8 @@ export const Base = styled.div<{ [key: string]: any }>`
   left: 0;
   right: 0;
   bottom: 0;
-  z-index: 2000;
+  z-index: 3000;
+  background-color: #fff;
 `;
 
 const Modal: FC<IModal> = ({ children, show, onCloseModal, rest }) => {
